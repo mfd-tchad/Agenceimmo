@@ -1,0 +1,109 @@
+header
+{
+    background-color: white;
+    color: yellowgreen;
+    padding : 5px;
+    margin: 0;
+}
+header h1 {
+    font-family: georgia, verdana;
+    font-size: 3em;
+    font-weight: bold;
+    font-style: italic;
+    font-stretch: extra-expanded;
+    margin: 1.5em;
+}
+nav
+{
+    background-color: white;
+    font: 1.5em "georgia" ,verdana;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    display: block;
+} 
+/*
+#conteneur_menu {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50px;
+}
+*/
+.element_menu {
+    padding: 10px;
+    font: normal;
+}
+/*
+#menu a {
+    color: #208b4e;
+    
+
+*/
+body
+{
+	font: normal 1em "georgia" ,verdana;
+}
+
+main {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding : 10px;
+    /* background-color:  #9e9d9d; */
+}
+
+main h2 {
+    margin-left: 0;
+    text-align: center;
+}
+
+h2 {
+	text-align: center;
+	font: bold 1.7em "georgia", verdana;
+	font-style: italic;
+}
+
+h1, h3
+	{
+		text-align: center;
+    }	
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+fieldset p {
+    display: flex;
+    flex-direction: row;
+}
+
+fieldset input {
+    margin-right: 1em;
+    width: auto;
+}
+
+#radio input {
+    margin-right: 0;
+    margin-left: 2em;
+}
+fieldset label {
+    margin-left: 1em;
+}
+/*
+section#slider > img {
+    display: block;
+    margin: 0px auto;
+    position : relative;
+    overflow : hidden;
+    height : 300px;
+    width : auto;
+    align-items: center;
+}
+*/
+.carousel-item > img {
+     height : 300px;
+}
