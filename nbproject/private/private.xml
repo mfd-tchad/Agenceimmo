@@ -4,13 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/E:/AgenceImmo/web/pageCreerUnBien.jsp</file>
-            <file>file:/E:/AgenceImmo/web/js/ajax.js</file>
-            <file>file:/E:/AgenceImmo/src/java/Controleurs/CtrlEditerUnBien.java</file>
+            <file>file:/E:/AgenceImmo/src/java/Controleurs/ChercherBiens.java</file>
+            <file>file:/E:/AgenceImmo/src/java/Controleurs/CtrlPageBiens.java</file>
             <file>file:/E:/AgenceImmo/src/java/Controleurs/CtrlCreerUnBien.java</file>
-            <file>file:/E:/AgenceImmo/src/java/Controleurs/CtrlAdmin.java</file>
-            <file>file:/E:/AgenceImmo/src/java/Beans/Utilisateur.java</file>
-            <file>file:/E:/AgenceImmo/web/login.jsp</file>
-            <file>file:/E:/AgenceImmo/web/pageAccueil.jsp</file>
+            <file>file:/E:/AgenceImmo/src/java/Controleurs/CtrlAdminBiens.java</file>
+            <file>file:/E:/AgenceImmo/web/pageEditerUnBien.jsp</file>
         </group>
     </open-files>
 </project-private>

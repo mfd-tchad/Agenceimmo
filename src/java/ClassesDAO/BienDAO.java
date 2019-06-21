@@ -2,6 +2,7 @@ package ClassesDAO;
 
 import Beans.Filtre;
 import Beans.Bien;
+import Beans.Departement;
 import Beans.Img;
 import Beans.Option;
 import Beans.Ville;
@@ -13,6 +14,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class BienDAO extends DAO<Bien> {
@@ -43,9 +45,14 @@ public class BienDAO extends DAO<Bien> {
     }
 
     public HashSet<Bien> recupererTout() throws ExceptionDAO {
-        return recupererNDerniers(0);
+        return new HashSet(recupererNDerniers(0));
     }
 
+     public ArrayList<Bien> recupererToutTrie() throws ExceptionDAO {
+         //ArrayList<Bien> listeBiens = new ArrayList<Bien>(recupererNDerniers(0));
+         return recupererNDerniers(0);
+    }
+     
     private Bien hydrate(ResultSet resultat) throws ExceptionDAO {
         Bien bien = new Bien();
         Ville ville = new Ville();
@@ -78,8 +85,8 @@ public class BienDAO extends DAO<Bien> {
         return bien;
     }
 
-    public HashSet<Bien> recupererNDerniers(int nbBiens) throws ExceptionDAO {
-        HashSet<Bien> setBiens = new HashSet<>();
+    public ArrayList<Bien> recupererNDerniers(int nbBiens) throws ExceptionDAO {
+        ArrayList<Bien> setBiens = new ArrayList<>();
        
         Img photo = null;
         Bien bien = null;
@@ -92,9 +99,7 @@ public class BienDAO extends DAO<Bien> {
             if (nbBiens > 0) {
                 query += " LIMIT ?";
             }
-
             PreparedStatement prepare = connect.prepareStatement(query);
-
             if (nbBiens > 0) {
                 prepare.setInt(1, nbBiens);
             }

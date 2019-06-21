@@ -79,7 +79,7 @@
                                 <c:forEach items="${lesoptions}" var="loption" begin="0" varStatus="status">
                                     <div class="custom-control custom-checkbox" style="display: inline-block">
 
-                                        <input type="checkbox" class="custom-control-input" id="option${status.count}" value="${loption.id}" 
+                                        <input type="checkbox" class="custom-control-input" id="option${status.count}" value="${loption.id}" />
 
                                                <label class="custom-control-label" for="option${status.count}"> ${loption.nomOption}</label>
                                     </div>
@@ -103,11 +103,11 @@
 
                         <div class="form-group col-md-4" id="ville">
                             <label for="ville">Ville : </label>
-                                <select class="form-control" name="ville">
-                                    <c:forEach items="${lesvilles}" var="laville" begin="0">
-                                        <option value="${lebien.ville.idVille}">${laville.codePostal} - ${laville.nomVille}</option>
-                                    </c:forEach>
-                                </select>
+                            <select class="form-control" name="ville">
+                                <c:forEach items="${lesvilles}" var="laville" begin="0">
+                                    <option value="${lebien.ville.idVille}">${laville.codePostal} - ${laville.nomVille}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <%--                        
                                                 <div class="form-group col-md-4">
@@ -122,7 +122,7 @@
                 <div class="card-footer">
                     <input class="btn btn-success w-25 p-2" type="submit" name="submit" value="Valider" />
                     <input class="btn btn-secondary p-2 w-25 float-center" type="reset" name="reset" value="Effacer" />
-                    <a href="aiguillage?cmd=AdminBiens" class="btn btn-primary p-2 w-25 float-right">Annuler la création</a>
+                    <a href="aiguillage?cmd=AdminBiens" class="btn btn-dark p-2 w-25 float-right">Annuler la création</a>
                 </div>
 
 

@@ -8,6 +8,7 @@ package Controleurs;
 import Beans.Bien;
 import ClassesDAO.DAOFactory;
 import ClassesDAO.ExceptionDAO;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class ChercherBiens {
 
         try {
             ClassesDAO.DAO<Bien> bienDAO = DAOFactory.getBienDAO();
-            HashSet<Bien> setBien = bienDAO.recupererTout();
+            ArrayList<Bien> setBien = bienDAO.recupererToutTrie();
             Iterator<Bien> it = setBien.iterator();
 
             System.out.println("CtrlAdminBiens AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

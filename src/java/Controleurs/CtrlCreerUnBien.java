@@ -25,6 +25,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,6 +35,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CtrlCreerUnBien extends HttpServlet implements ICommand {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
         Bien bien = new Bien();
         if (!request.getParameterMap().containsKey("submit")) {
             System.out.println("Premier passage dans CtrlCreerUnBien *********************************");
@@ -67,17 +69,22 @@ public class CtrlCreerUnBien extends HttpServlet implements ICommand {
             ClassesDAO.DAO<Departement> departementDAO = DAOFactory.getDepartementDAO();
 
             System.out.println("Récupération de la liste des départements DDDDDDDDDDDDD");
-            //HashSet<Departement> setDepartements = new HashSet<>();
-            //setDepartements = departementDAO.recupererTout();
             ArrayList<Departement> listeDepartements = new ArrayList<Departement>();
-            listeDepartements = ((DepartementDAO) departementDAO).recupererToutTrie();
+            // A la première demande de la liste des départements, celle-ci est récupérée dans la base de données et
+            // stockée dans une variable de session de manière à ne pas avoir à la rechercher en BD à chaque fois
+            if (session.getAttribute("lesdepartements") != null) {
+                System.out.println("Liste des départements existante dans variable de session -------------------------");
+                listeDepartements = (ArrayList<Departement>) session.getAttribute("lesdepartements");
+            } else {
+                listeDepartements = ((DepartementDAO) departementDAO).recupererToutTrie();
+                session.setAttribute("lesdepartements", listeDepartements);
+            }
             request.setAttribute("lesdepartements", listeDepartements);
 
             ClassesDAO.DAO<Ville> villeDAO = DAOFactory.getVilleDAO();
             ArrayList<Ville> listeVilles = new ArrayList<Ville>();
             listeVilles = ((VilleDAO) villeDAO).recupererVillesDunDepartement(1);
             request.setAttribute("lesvilles", listeVilles);
-
             request.setAttribute("lebien", bien);
             return "pageCreerUnBien.jsp";
         } else {

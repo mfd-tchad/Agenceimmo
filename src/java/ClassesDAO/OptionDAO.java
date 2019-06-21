@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class OptionDAO extends DAO<Option> {
@@ -47,7 +48,9 @@ public class OptionDAO extends DAO<Option> {
         return recupererOptionsdUnBien(0);
     }
 
-    
+    public ArrayList<Option> recupererToutTrie() throws ExceptionDAO {
+        return new ArrayList(recupererOptionsdUnBien(0));
+    }
     public HashSet<Option> recupererOptionsdUnBien(int idBien) throws ExceptionDAO {
         Option option = new Option();
         HashSet<Option> setOptions = new HashSet<>();

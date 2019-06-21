@@ -95,6 +95,10 @@ public class VilleDAO extends DAO<Ville> {
     public HashSet<Ville> recupererTout() {
         return null;
     }
+    
+    public ArrayList<Ville> recupererToutTrie() {
+        return null;
+    }
 
     public Ville recupererUn(int no) {
         return null;

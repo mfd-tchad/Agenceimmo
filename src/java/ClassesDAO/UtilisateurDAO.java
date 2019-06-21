@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -140,6 +141,9 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
 
     }
 
+    public ArrayList<Utilisateur> recupererToutTrie() {
+        return new ArrayList(recupererTout());
+    }
 
     public HashSet<Utilisateur> recupererTout() {
         Utilisateur utilisateur = null;

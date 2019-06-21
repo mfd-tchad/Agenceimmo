@@ -75,6 +75,10 @@ public class ImgDAO extends DAO<Img> {
         return null;
     }
 
+     public ArrayList<Img> recupererToutTrie() {
+        return null;
+    }
+     
     public HashSet<Img> recupererPhotosdUnBien(int idBien) throws ExceptionDAO {
         Img photo = new Img();
         HashSet<Img> setPhotos = new HashSet<>();

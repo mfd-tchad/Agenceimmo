@@ -9,6 +9,7 @@ import ClassesDAO.BienDAO;
 import Beans.Bien;
 import ClassesDAO.DAOFactory;
 import ClassesDAO.ExceptionDAO;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import javax.servlet.ServletException;
@@ -27,7 +28,7 @@ public class CtrlPageAccueil extends HttpServlet implements ICommand{
         try {
             //if (session.getAttribute("touslesbiens") == null)
             ClassesDAO.DAO<Bien> bienDAO = DAOFactory.getBienDAO();
-            HashSet<Bien> setBien = ((BienDAO)bienDAO).recupererNDerniers(6);
+            ArrayList<Bien> setBien = ((BienDAO)bienDAO).recupererNDerniers(6);
             
             Iterator<Bien> it = setBien.iterator();
             System.out.println("CtrlAccueil AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");

@@ -39,6 +39,8 @@ public abstract class DAO<T> {
     
     public abstract HashSet<T> recupererTout() throws ExceptionDAO;
     
+    public abstract ArrayList<T> recupererToutTrie() throws ExceptionDAO;
+    
     public abstract T recupererUn(T filtre) throws ExceptionDAO;
     
     public abstract T recupererUn(int id) throws ExceptionDAO;

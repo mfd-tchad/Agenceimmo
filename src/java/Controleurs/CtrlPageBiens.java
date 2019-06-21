@@ -25,29 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CtrlPageBiens extends HttpServlet implements ICommand {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            ClassesDAO.DAO<Bien> bienDAO = DAOFactory.getBienDAO();
-            HashSet<Bien> setBien = bienDAO.recupererTout();
-            Iterator<Bien> it = setBien.iterator();
-            System.out.println("CtrlPageBiens BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-            while (it.hasNext()) {
-                Bien bien = it.next();            
-                System.out.println("\t" + bien.getIdentifiant() + "  |  " + bien.getNom() + "  |  " + bien.getVille().getNomVille() + "  |  " + bien.getSurface() + "  |  " + bien.getNbPieces() + 
-                        "  |  " + bien.getNbChambres() + "  |  " + bien.getEtage() + "  |  " + bien.getPrix() + "  |  " + bien.getTypeChauffage());
-            }
-            request.setAttribute("lesbiens", setBien);
-        }
-        catch (NullPointerException e) {
-            e.printStackTrace();
-            request.setAttribute("message", "Désolé, les informations sur les biens en vente n'ont pas pu être récupérées\nVeuillez réessayer plus tard");
-        }
-        catch (ExceptionDAO e) {
-            request.setAttribute("message", "Désolé, les informations sur les biens en vente n'ont pas pu être récupérées\nVeuillez réessayer plus tard");
-        }
-        catch (Exception e) {
-            e.printStackTrace(); 
-            request.setAttribute("message", "Désolé, les informations sur les biens en vente n'ont pas pu être récupérées\nVeuillez réessayer plus tard");
-        }
+        ChercherBiens.chercherLesBiens(request, response);
         return "pageBiens.jsp";
     }
     /**

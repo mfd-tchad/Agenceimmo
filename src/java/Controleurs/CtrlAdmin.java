@@ -5,16 +5,11 @@
  */
 package Controleurs;
 
-import Beans.Bien;
 import Beans.Utilisateur;
 import Beans.Utilitaires;
 import ClassesDAO.DAOFactory;
 import ClassesDAO.UtilisateurDAO;
-import Formulaires.FormulaireConnexion;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
